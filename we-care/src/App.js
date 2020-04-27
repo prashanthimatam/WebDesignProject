@@ -9,7 +9,7 @@ import Login from "./components/Auth/Login";
 import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Header from "./components/Header/Header";
-import Cart from "./components/cart/cart.component";
+import Cart from "./components/Products/Cart";
 import Blog from "./components/Blog/blog.component";
 import BlogPost from "./components/Blog/BlogSubComponents/BlogPost.component";
 import UserAccount from "./components/Blog/Account/userAccount.component";
@@ -19,7 +19,10 @@ import Orders from "./components/Products/Orders";
 import History from "./components/Products/History";
 import Product from "./components/Products/Product";
 import Products from "./components/Products/Products";
+import Wallet from "./components/Wallet/Wallet";
 import logo from "./logo.svg";
+import Join from "./components/Join/Join";
+import Chat from "./components/Chat/Chat";
 import "../node_modules/jquery/dist/jquery";
 import "../node_modules/bootstrap/dist/js/bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -30,6 +33,9 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import Doctors from "./components/Doctors/Doctors";
 import Consult from "./components/Doctors/Consult";
+import Consultations from "./components/Doctors/Consultations";
+import BrowseDoctors from "./components/Doctors/BrowseDoctors";
+import CategoryDescription from "./components/Doctors/CategoryDescription";
 class App extends React.Component {
   async componentDidMount() {
     const script = document.createElement("script");
@@ -47,7 +53,7 @@ class App extends React.Component {
     const { user } = this.props;
     return (
       <div className="App">
-        <Header></Header>
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           {/* <Route path="/product" component={Product} /> */}
@@ -58,6 +64,12 @@ class App extends React.Component {
           <PrivateRoute exact path="/cart" component={Cart} />
           <PrivateRoute exact path="/orders" component={Orders} />
           <PrivateRoute exact path="/history" component={History} />
+          <PrivateRoute path="/doctors" component={Doctors} />
+          <PrivateRoute path="/consultations" component={Consultations} />
+          <PrivateRoute path="/consult" component={Consult} />
+          <PrivateRoute path="/consult/doctors" component={Consult} />
+          <Route path="/browseDoctors" component={BrowseDoctors} />
+          <Route path="/describe" component={CategoryDescription} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           {/* Will allow only logged in users to access blog and account*/}
@@ -66,11 +78,14 @@ class App extends React.Component {
           <Route path="/product" component={Product} />
           <Route path="/doctors" component={Doctors} />
           <Route path="/consult" component={Consult} />
+          <Route path="/joinChat" component={Join} />
+          <Route path="/chat" component={Chat} />
           <PrivateRoute exact path="/buyNow" component={BuyNow} />
           <PrivateRoute exact path="/cart" component={Cart} />
+          <PrivateRoute path="/wallet" component={Wallet} />
           <Route exact path="/blogPost" component={user ? BlogPost : Login} />
         </Switch>
-        <Footer></Footer>
+        <Footer />
       </div>
     );
   }
