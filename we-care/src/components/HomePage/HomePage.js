@@ -3,10 +3,10 @@ import {
   Jumbotron,
   Carousel,
   Card,
-  Button,
+  // Button,
   Container,
   Row,
-  Col
+  Col,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import carousel1 from "../../assets/images/carouselN2.jpg";
@@ -76,9 +76,9 @@ function HomePage() {
         <Row>
           <Col>
             <Card className="cardlayout cardInfo" style={{ width: "18rem" }}>
-              {/* <Link to="/products"> */}
+              <Link to="/products">
               <img className="d-block w-100" src={card1} alt="First slide" />
-              {/* </Link> */}
+              </Link>
               <Card.Body>
                 <Card.Title>PHARMACY!</Card.Title>
                 <Card.Text>

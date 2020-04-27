@@ -29,6 +29,7 @@ const  PayWithWallet = ({onSuccess,total}) =>{
             const DecreaseWalletAmount = await axios.post("/api/amount", {
                 UserId: UserId,
                 amount: -totalAmount*10,
+                amount: -totalAmount,
             });
             if(DecreaseWalletAmount.status === 204){
                 // alert("Successfully payed from wallet:Thanks")
@@ -38,6 +39,7 @@ const  PayWithWallet = ({onSuccess,total}) =>{
         }
         else{
             alert('Please Add Money in your wallet')
+            alert('Please Add Amount in your wallet')
         }
     }
     return <a className="button3" onClick={() => handlePayment()}>Pay with Wallet</a>

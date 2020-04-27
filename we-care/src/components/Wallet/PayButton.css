@@ -43,12 +43,16 @@ a.button3:hover{
     top:1px;
 }
 
-
 .h6 {   
     /*margin: 0 auto;*/
     margin-top: 100px;
     max-width: 400px;
     margin: 0 auto;
+.h6 {
+    /*margin: 0 auto;*/
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
     padding: 50px 0 5px 0;
     color: black;
     font-weight: normal;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import './Auth.css';
-import { Alert, Card, Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser, sendMail } from "../../controller/authController";
@@ -74,8 +74,8 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div> {(this.state.isErr ?
-        (<Alert variant="danger" onClose={() => this.closeErrAlertCart()} dismissible>{this.state.errorMessage}</Alert>)
+      <div>{(this.state.isErr ?
+        (<Alert variant="danger" onClose={() => this.closeErrAlertCart()} dismissible>{this.state.errors.errorMessage}</Alert>)
         : '')}
         {(this.state.onSuccess ?
           (<Alert variant="success" onClose={() => this.closeAlertCart()} dismissible> Success! <Link to="/login">Login</Link> to continue</Alert>)

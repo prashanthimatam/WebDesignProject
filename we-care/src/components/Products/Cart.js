@@ -163,14 +163,14 @@ class Cart extends React.Component {
               <p>
                 <strong>
                   {" "}
-                  TOTAL AMOUNT:
+                  TOTAL AMOUNT;
+                  Total amount:
                   {this.state.cartExists ? (
                     <span className="total"> {this.state.cartTotal}</span>
                   ) : (
                     ""
                   )}
                 </strong>
-               
               </p>
               {this.state.cartExists ? (
                   <>
@@ -222,3 +222,4 @@ export default connect(
   { logoutUser }
 )(Cart);
 //line 173 {this.tot}= {this.state.cartTotal}
+//line 173{this.tot}= {this.state.cartTotal}
