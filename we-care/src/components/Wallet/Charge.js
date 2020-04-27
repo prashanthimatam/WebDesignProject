@@ -55,6 +55,7 @@ const CheckoutForm = ({ UserId, success }) => {
       try {
         const { data } = await axios.post("/api/charge", {
           id,
+          amount: amountValue * 1000,
           amount: amountValue * 100,
         });
         if (data) {
@@ -76,7 +77,6 @@ const CheckoutForm = ({ UserId, success }) => {
       }
     }
   };
-
   return (
     <>
       {isPaymentSuccess ? (
@@ -132,6 +132,7 @@ const Charge = ({ UserId }) => {
   }
 
   return (
+    <> <h2 align="center" fontFamily="arial">WALLET <br></br></h2>
     <><h2 align="center" fontFamily="arial">WALLET <br></br></h2>
 
       <h6 className="h6">Available Balance: ${availableBalance}</h6>

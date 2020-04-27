@@ -28,6 +28,7 @@ const  PayWithWallet = ({onSuccess,total}) =>{
         if (availableBalance >= totalAmount) {
             const DecreaseWalletAmount = await axios.post("/api/amount", {
                 UserId: UserId,
+                amount: -totalAmount*10,
                 amount: -totalAmount,
             });
             if(DecreaseWalletAmount.status === 204){
@@ -37,6 +38,7 @@ const  PayWithWallet = ({onSuccess,total}) =>{
 
         }
         else{
+            alert('Please Add Money in your wallet')
             alert('Please Add Amount in your wallet')
         }
     }
