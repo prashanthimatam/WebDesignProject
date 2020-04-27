@@ -1,6 +1,4 @@
 const express = require("express");
-const dotenv = require("dotenv");
-dotenv.config({ path: "./config/config.env" });
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -21,8 +19,6 @@ const xss = require("xss-clean");
 const app = express();
 
 app.use(cors());
-app.use(cors({ credentials: true }));
-app.options("*", cors());
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -38,15 +34,10 @@ app.use(xss());
 // DB Config
 const db = require("./config/keys").mongoURI;
 
-// console.log(db);
+console.log(db);
 // Connect to MongoDB
 mongoose
-  .connect(db, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("MongoDB successfully connected"))
   .catch((err) => console.log(err));
 
@@ -60,7 +51,6 @@ app.use("/api/cart", cart);
 app.use("/api/order", order);
 app.use("/api/productsData", products);
 app.use("/api/doctors", doctors);
-
 app.use("/api/charge", charge);
 app.use("/api/amount", amount);
 app.use("/api/post", postRouter);
